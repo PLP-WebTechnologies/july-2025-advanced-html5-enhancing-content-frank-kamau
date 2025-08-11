@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enhanced HTML5 Content &amp; Accessible Form</title>
+  <meta name="description" content="Example page showcasing lists, tables, media and a complete HTML5 form with native validation.">
+  <style>
+    /* Basic, clean styling to make the example readable and accessible */
+    :root{--max-width:900px;--gap:1rem;--accent:#0b63ff}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.45;margin:0;padding:1.25rem;background:#f7f9fc;color:#0b1a2b}
+    .container{max-width:var(--max-width);margin:0 auto;background:#fff;padding:1.25rem;border-radius:8px;box-shadow:0 6px 18px rgba(11,22,40,0.06)}
+    header, main, footer{display:block}
+    header{border-bottom:1px solid #e6eefb;padding-bottom:0.75rem;margin-bottom:1rem}
+    h1{margin:.25rem 0}
+    .intro{color:#334b6f}
+    nav ul{display:flex;gap:0.5rem;flex-wrap:wrap;padding:0;margin:0;list-style:none}
+    nav a{padding:0.35rem 0.6rem;border-radius:6px;text-decoration:none;background:#f1f7ff;color:var(--accent);font-weight:600}
+    section{margin-top:1rem}
+    .grid{display:grid;grid-template-columns:1fr;gap:1rem}
+    @media(min-width:720px){.grid{grid-template-columns:1fr 320px}}
+    table{width:100%;border-collapse:collapse;margin-top:0.5rem}
+    caption{caption-side:top;font-weight:700;text-align:left;padding-bottom:0.25rem}
+    th,td{padding:0.5rem;border:1px solid #e6eefb;text-align:left}
+    th{background:#f4f9ff}
+    figure{margin:0}
+    img{max-width:100%;height:auto;border-radius:6px}
+    form{margin-top:0.75rem}
+    fieldset{border:1px solid #e6eefb;padding:0.75rem;border-radius:6px;margin-bottom:0.75rem}
+    legend{font-weight:700;padding:0 0.25rem}
+    .form-row{display:grid;grid-template-columns:1fr;gap:0.5rem}
+    @media(min-width:720px){.form-row.two{grid-template-columns:1fr 1fr}}
+    label{display:block;font-size:.95rem;margin-bottom:0.25rem}
+    input[type=text],input[type=email],input[type=tel],input[type=url],input[type=password],input[type=number],select,textarea,input[type=date],input[type=time]{width:100%;padding:0.55rem;border:1px solid #d9e9ff;border-radius:6px}
+    small{color:#4b647f;display:block;margin-top:0.25rem}
+    .required{color:#c0392b;margin-left:0.25rem}
+    .submit-row{display:flex;gap:0.5rem;align-items:center}
+    button{background:var(--accent);color:#fff;border:0;padding:0.6rem 1rem;border-radius:6px;font-weight:700;cursor:pointer}
+    .muted{color:#556b84;font-size:.95rem}
+    .note{background:#fff9e6;padding:0.6rem;border-left:4px solid #ffd166;border-radius:6px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Enhanced HTML5 Content &amp; Accessible Form</h1>
+      <p class="intro">This example demonstrates the effective use of lists, tables, media and a fully-validated HTML5 form using only native validation features (no JavaScript).</p>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#content">Content</a></li>
+          <li><a href="#media">Media</a></li>
+          <li><a href="#registration">Form</a></li>
+          <li><a href="#notes">Notes</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- SECTION: Content using lists and tables -->
+      <section id="content" class="grid">
+        <article>
+          <h2>Organizing Content: Lists &amp; Tables</h2>
+
+          <!-- Unordered list for features -->
+          <h3>Key Features (unordered list)</h3>
+          <ul>
+            <li>Semantic structure using <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;footer&gt;</code>.</li>
+            <li>Accessible form controls with labels and fieldsets.</li>
+            <li>Native HTML5 validation attributes to reduce incorrect input.</li>
+          </ul>
+
+          <!-- Ordered list for steps -->
+          <h3>Completion Steps (ordered list)</h3>
+          <ol>
+            <li>Read the instructions and understand the required fields.</li>
+            <li>Provide accurate input using the appropriate input types.</li>
+            <li>Submit the form and correct any validation errors shown by the browser.</li>
+          </ol>
+
+          <!-- Definition list for terms -->
+          <h3>Definitions (definition list)</h3>
+          <dl>
+            <dt>placeholder</dt>
+            <dd>Text shown inside an input that suggests the expected value.</dd>
+            <dt>required</dt>
+            <dd>An attribute that instructs the browser to prevent form submission until the field has a value.</dd>
+          </dl>
+
+          <!-- Table: Example data presented accessibly -->
+          <h3>Example Pricing Table</h3>
+          <table>
+            <caption>Service packages &amp; features</caption>
+            <thead>
+              <tr>
+                <th scope="col">Package</th>
+                <th scope="col">Price (USD)</th>
+                <th scope="col">Max Users</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Starter</th>
+                <td>0</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <th scope="row">Business</th>
+                <td>29</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <th scope="row">Enterprise</th>
+                <td>199</td>
+                <td>Unlimited</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </article>
+
+        <!-- ASIDE: media preview -->
+        <aside id="media">
+          <h3>Media Examples</h3>
+
+          <!-- Figure with image and caption -->
+          <figure>
+            <!-- Replace 'images/sample.jpg' with an actual image path when deploying -->
+            <img src="https://via.placeholder.com/640x360.png?text=Sample+Image" alt="Sample placeholder image illustrating visual content" width="640" height="360">
+            <figcaption>Figure 1: Example image wrapped in a semantic <code>&lt;figure&gt;</code> with a caption.</figcaption>
+          </figure>
+
+          <!-- Audio: use controls, provide multiple sources and fallback text -->
+          <h4>Audio example</h4>
+          <audio controls>
+            <!-- Replace with your audio file; browsers will pick a supported source -->
+            <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+            Your browser does not support the audio element. You can <a href="https://www.w3schools.com/html/horse.mp3">download the audio</a> instead.
+          </audio>
+
+          <!-- Video: controls and accessible caption mention -->
+          <h4>Video example</h4>
+          <video controls width="320">
+            <!-- Replace with your video file; include captions/subtitles if available -->
+            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+            Your browser does not support the video tag. You can <a href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">download the video</a> instead.
+          </video>
+
+        </aside>
+      </section>
+
+      <!-- SECTION: Full HTML5 Form -->
+      <section id="registration">
+        <h2>Registration &amp; Feedback Form</h2>
+        <p class="muted">This form demonstrates native HTML5 validation using attributes such as <code>required</code>, <code>type</code>, <code>minlength</code>, <code>pattern</code>, <code>readonly</code>, <code>placeholder</code>, <code>autocomplete</code> and others. No JavaScript is used for validation.</p>
+
+        <!-- The form does not use 'novalidate' so native validation is active -->
+        <form action="#" method="post" enctype="multipart/form-data" autocomplete="on">
+
+          <!-- Personal information group -->
+          <fieldset>
+            <legend>Personal Information</legend>
+
+            <!-- Membership ID: pre-filled and readonly -->
+            <label for="membership">Membership ID</label>
+            <input id="membership" name="membership" type="text" value="M-2025-00123" readonly aria-readonly="true">
+            <small class="muted">A readonly membership identifier (auto-issued). Users cannot edit this value.</small>
+
+            <div class="form-row two" style="margin-top:0.5rem">
+              <div>
+                <label for="firstname">First name <span class="required" aria-hidden="true">*</span></label>
+                <input id="firstname" name="given-name" type="text" placeholder="e.g., Amina" required minlength="2" autocomplete="given-name">
+                <small id="firstHelp">Please enter your given name (min 2 characters).</small>
+              </div>
+
+              <div>
+                <label for="lastname">Last name <span class="required" aria-hidden="true">*</span></label>
+                <input id="lastname" name="family-name" type="text" placeholder="e.g., Mwangi" required minlength="2" autocomplete="family-name">
+              </div>
+            </div>
+
+            <label for="email">Email address <span class="required" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" placeholder="name@example.com" required autocomplete="email">
+            <small class="muted">A valid email address is required (browser will validate the format).</small>
+
+            <label for="phone">Phone number</label>
+            <!-- Pattern allows optional leading + and 7 to 15 digits -->
+            <input id="phone" name="tel" type="tel" placeholder="+254712345678" pattern="^\+?\d{7,15}$" title="Enter a valid phone number with 7 to 15 digits, optional leading +" autocomplete="tel">
+            <small>Format example: <code>+254712345678</code> or numbers with 7-15 digits.</small>
+
+            <label for="website">Website</label>
+            <input id="website" name="website" type="url" placeholder="https://example.com" autocomplete="url">
+            <small class="muted">Optional: enter a full URL starting with <code>http://</code> or <code>https://</code>.</small>
+
+          </fieldset>
+
+          <!-- Account info group with username/password validation -->
+          <fieldset>
+            <legend>Account Details</legend>
+
+            <label for="username">Username <span class="required" aria-hidden="true">*</span></label>
+            <!-- Pattern: letters, numbers, underscores; 4-20 chars -->
+            <input id="username" name="username" type="text" placeholder="choose-a-username" required minlength="4" maxlength="20" pattern="^[A-Za-z0-9_]{4,20}$" title="Use 4-20 characters: letters, numbers and underscores only" autocomplete="username">
+
+            <label for="password">Password <span class="required" aria-hidden="true">*</span></label>
+            <!-- Pattern ensures at least one lower, one upper, one digit, min 8 chars -->
+            <input id="password" name="password" type="password" placeholder="Minimum 8 characters" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must be at least 8 characters and include uppercase, lowercase and a number" autocomplete="new-password">
+            <small class="muted">Password must include at least one uppercase letter, one lowercase letter and one number (min 8 characters).</small>
+
+            <label for="dob">Date of Birth</label>
+            <input id="dob" name="dob" type="date" max="2025-12-31" title="Select your birth date" autocomplete="bday">
+
+            <label for="quantity">Preferred number of seats</label>
+            <input id="quantity" name="seats" type="number" min="1" max="10" step="1" value="1">
+
+          </fieldset>
+
+          <!-- Preferences and file upload -->
+          <fieldset>
+            <legend>Preferences &amp; Uploads</legend>
+
+            <label for="service">Choose a service plan <span class="required" aria-hidden="true">*</span></label>
+            <select id="service" name="service" required>
+              <option value="">-- Select a plan --</option>
+              <option value="starter">Starter (Free)</option>
+              <option value="business">Business</option>
+              <option value="enterprise">Enterprise</option>
+            </select>
+
+            <label for="satisfaction">Satisfaction level (0-10)</label>
+            <input id="satisfaction" name="satisfaction" type="range" min="0" max="10" step="1" value="8">
+            <small class="muted">Use the slider to indicate your satisfaction level.</small>
+
+            <label for="profilepic">Upload a profile picture</label>
+            <!-- Accept only images; not required -->
+            <input id="profilepic" name="profilepic" type="file" accept="image/*">
+            <small class="muted">Accepted types: JPG, PNG, GIF (optional).</small>
+
+            <label for="color">Favorite color</label>
+            <input id="color" name="favcolor" type="color" value="#0b63ff">
+            <small class="muted">Pick a color to personalize your profile.</small>
+
+          </fieldset>
+
+          <!-- Accessibility: fieldset for communication preferences -->
+          <fieldset>
+            <legend>Communication Preferences</legend>
+
+            <p class="muted">Choose how we can contact you (select all that apply):</p>
+            <label><input type="checkbox" name="contact_email" value="email" checked> Email</label>
+            <label><input type="checkbox" name="contact_sms" value="sms"> SMS</label>
+            <label><input type="checkbox" name="contact_phone" value="phone"> Phone</label>
+
+            <p style="margin-top:0.5rem">Preferred contact time</p>
+            <label for="contacttime">Time</label>
+            <input id="contacttime" name="contacttime" type="time" autocomplete="tel-local" title="Preferred time for calls">
+
+            <p class="muted" style="margin-top:0.5rem">Gender (radio buttons)</p>
+            <label><input type="radio" name="gender" value="female"> Female</label>
+            <label><input type="radio" name="gender" value="male"> Male</label>
+            <label><input type="radio" name="gender" value="other"> Other</label>
+
+          </fieldset>
+
+          <!-- Feedback: text area with validation -->
+          <fieldset>
+            <legend>Feedback</legend>
+
+            <label for="topic">Topic</label>
+            <input id="topic" name="topic" list="topic-list" placeholder="Choose or type a topic">
+            <datalist id="topic-list">
+              <option value="Site feedback">
+              <option value="Billing">
+              <option value="Feature request">
+              <option value="Other">
+            </datalist>
+
+            <label for="comments">Comments <span class="required" aria-hidden="true">*</span></label>
+            <textarea id="comments" name="comments" rows="5" placeholder="Write your comments here" required minlength="10" maxlength="1000"></textarea>
+            <small class="muted">Minimum 10 characters. Maximum 1000 characters.</small>
+
+          </fieldset>
+
+          <!-- Terms and submit -->
+          <fieldset>
+            <legend>Final steps</legend>
+
+            <label for="terms"><input id="terms" name="terms" type="checkbox" required> I agree to the <a href="#">terms &amp; conditions</a> <span class="required" aria-hidden="true">*</span></label>
+
+            <div class="submit-row" style="margin-top:0.5rem">
+              <button type="submit">Submit Registration</button>
+              <button type="reset" style="background:#fff;border:1px solid #e6eefb;color:var(--accent);font-weight:700">Reset</button>
+            </div>
+
+            <p class="muted" style="margin-top:0.5rem">Note: The browser will prevent submission until all required fields are valid. No JavaScript is used for validation.</p>
+
+          </fieldset>
+
+        </form>
+
+      </section>
+
+      <section id="notes">
+        <h2>Notes &amp; Guidance</h2>
+        <p class="note"><strong>Accessibility tips:</strong> Always include descriptive <code>alt</code> text for images, associate <code>&lt;label&gt;</code> elements with form controls using the <code>for</code> attribute and use <code>fieldset</code>/<code>legend</code> to group related controls for screen-reader users.</p>
+
+        <p class="muted">This HTML file is self-contained and demonstrates the following &mdash; lists, tables, media, semantic layout, and a complete HTML5 form using built-in validation attributes: <code>required</code>, <code>minlength</code>, <code>maxlength</code>, <code>pattern</code>, <code>type</code>, <code>readonly</code>, <code>placeholder</code>, <code>autocomplete</code>, <code>accept</code> (file), and more.</p>
+      </section>
+
+    </main>
+
+    <footer style="margin-top:1rem;border-top:1px solid #e6eefb;padding-top:0.75rem">
+      <p class="muted">Created as an assignment example &middot; No data is submitted to a server in this demo (form action="#").</p>
+    </footer>
+  </div>
+</body>
+</html>
